@@ -1,7 +1,7 @@
 function calculatingMyLoveScore() {
     let love1 = Math.floor(Math.random()*100);
     let love2 = Math.floor(Math.random()*100);
-    let average = (love1 + love2 )/2;
+    let average = (love1 + love2)/2;
     switch (true) {
         case (average >= 70):
             setTimeout(() => {

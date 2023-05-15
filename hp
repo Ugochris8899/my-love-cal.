@@ -1,0 +1,10 @@
+const http = require('http');
+PORT = 2023;
+const server = http.createServer((req, res) =>{
+    res.setHeader('Content-type', 'text/plain')
+    res.write("creating my First server as an Engineer.")
+    res.end();
+});
+server.listen(PORT, ()=> {
+    console.log(`Server is Listening To ${PORT}`)
+});

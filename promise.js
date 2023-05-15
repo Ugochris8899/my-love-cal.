@@ -77,43 +77,41 @@ function loveLife() {
         // let vero = Math.floor(Math.random()*100)
         resolve(man)
 
-    })
+    });
 }
 
 const loveLifeElse =(a)=>{
     return new Promise((resolve)=>{
-        const tega = a;
-        const vero = b;
-        let average = (tega + vero)/2;
-        const result = {tega:a, vero:b, average:average}
+        const man= a;
+        const woman = Math.floor(Math.random()*100)
+        const average = (man + woman)/2;
+        const result = {man:a, woman:woman, average:average}
         resolve(result)
     });
 }
 const doSomething = (a,b, c)=>{
     switch (true) {
-        case ((a,b).average >=70):
-            return(`${a.man}, vero is : ${b.vero}, average is ${(a,b).average}, so compatible`);
-            case ((a,b).average >=60):
-            return(`tega is :${a.tega}, vero is : ${b.vero}, average is ${(a,b).average}, so manageable`);
-            case ((a,b).average >=50):
-            return(`tega is :${a.tega}, vero is : ${b.vero}, average is ${(a,b).average}, so slightly compatible`);
-            case ((a,b).average >=40):
-            return(`tega is :${a.tega}, vero is : ${b.vero}, average is ${(a,b).average}, dont marry`);
-    
+        case (a.average >=70):
+            return(`${b}: ${a.man}, ${c}: ${a.woman}, average is: ${a.average}, verdict: so compatible`);
+        case (a.average >=60):
+            return(`${b}: ${a.man}, ${c}: ${a.woman}, average is: ${a.average}, verdict: slightly compatible`);
+        case (a.average >=50):
+            return(`${b}: ${a.man}, ${c}: ${a.woman}, average is: ${a.average}, verdict: manageable`);
+            case (a.average >=40):
+                return(`${b}: ${a.man}, ${c}: ${a.woman}, average is: ${a.average}, verdict: dont marry`);
         default:
-            return(`tega is :${a.tega}, vero is : ${b.vero}, average is ${(a,b).average}, run for ur life`);
+            return(`${b}: ${a.man}, ${c}: ${a.woman}, average is: ${a.average}, verdict: run for your life`);
     }
 }
 function failureCallback(error) {
     console.log(`error 404 happened: ${error}`);
 }
 
-const theRunner = async(theMan, theWoman)=>{
+const loveCalculator = async(theMan, theWoman)=>{
     try{
-        let tega = await loveLife();
-        let vero = await loveLife();
-        let resultObj = await loveLifeElse(tega);
-        let theResult = doSomething(resultObj);
+        let man = await loveLife();
+        let resultObj = await loveLifeElse(man);
+        let theResult = doSomething(resultObj, theMan, theWoman);
         console.log(theResult);
 
     }catch(error){
@@ -121,4 +119,4 @@ const theRunner = async(theMan, theWoman)=>{
     }
 
 }
-theRunner("tega","vero")
+loveCalculator("tega","vero")
